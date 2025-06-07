@@ -1,0 +1,8 @@
+# Ignora todo por defecto
+*
+
+# ¡Pero no ignores estos archivos!
+!.gitignore
+!api.py
+!modelo_ropa_50clases.h5
+!requirements.txt
