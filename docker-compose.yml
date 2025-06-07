@@ -1,0 +1,24 @@
+# version: "3.8"
+
+services:
+  clasificador_ropa_backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    image: clasificador_ropa_backend
+    container_name: clasificador_ropa_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/modelo_ropa_50clases.h5
+
+  clasificador_ropa_frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    image: clasificador_ropa_frontend
+    container_name: clasificador_ropa_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - clasificador_ropa_backend
