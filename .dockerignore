@@ -4,8 +4,7 @@
 # Necesario para backend
 !backend/api.py
 !backend/requirements.txt
-!backend/models/
-!backend/model_training/
+!models/
 
 # Necesario para frontend
 !frontend/*.json

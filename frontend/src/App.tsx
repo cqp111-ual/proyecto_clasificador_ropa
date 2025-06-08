@@ -23,7 +23,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch("http://localhost:8000/predict/fashionmnist", {
         method: "POST",
         body: formData,
       });

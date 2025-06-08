@@ -1,9 +1,17 @@
 FROM python:3.10-slim
 
 WORKDIR /app
-COPY backend/ .
+RUN mkdir api
+COPY backend/ api/
+RUN mkdir models
+COPY models/ models/
+
+WORKDIR /app/api
 RUN pip install --no-cache-dir -r requirements.txt
-ENV MODEL_PATH="models/modelo_ropa_50clases.h5"
+
+ENV MODELS_DIR=/app/models/
+ENV DEEPFASHION_MODEL=modelo_ropa_50clases.h5
+ENV FASHION_MNIST_MODEL=fashion_mnist_model_2_layer_50_epoc.h5
 
 EXPOSE 8000
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]

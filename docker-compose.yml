@@ -10,7 +10,8 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MODEL_PATH=models/modelo_ropa_50clases.h5
+      - DEEPFASHION_MODEL=modelo_ropa_50clases.h5
+      - FASHION_MNIST_MODEL=fashion_mnist_model_2_layer_50_epoc.h5
 
   clasificador_ropa_frontend:
     build:
